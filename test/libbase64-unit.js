@@ -2,11 +2,12 @@
 
 'use strict';
 
+const { Buffer } = require('node:buffer');
 let libbase64 = require('../lib/libbase64');
 let chai = require('chai');
 let expect = chai.expect;
-let crypto = require('crypto');
-let fs = require('fs');
+let crypto = require('node:crypto');
+let fs = require('node:fs');
 
 chai.config.includeStack = true;
 
@@ -82,7 +83,7 @@ describe('libbase64', () => {
                 done();
             });
 
-            let sendNextByte = function() {
+            let sendNextByte = function () {
                 if (i >= bytes.length) {
                     return encoder.end();
                 }
@@ -124,7 +125,7 @@ describe('libbase64', () => {
                 done();
             });
 
-            let sendNextByte = function() {
+            let sendNextByte = function () {
                 if (i >= bytes.length) {
                     return encoder.end();
                 }
@@ -161,7 +162,7 @@ describe('libbase64', () => {
                 done();
             });
 
-            let sendNextByte = function() {
+            let sendNextByte = function () {
                 if (i >= bytes.length) {
                     return decoder.end();
                 }
